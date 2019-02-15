@@ -1,6 +1,7 @@
 package com.example.myutils.Utils;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -14,6 +15,8 @@ import android.support.design.widget.Snackbar;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -168,5 +171,33 @@ public class Utils {
             v.vibrate(milliSeconds);
         }
     }
+
+    /**
+     * Hides the activity's action bar
+     *
+     * @param activity the activity
+     */
+    public static void hideActionBar(Activity activity) {
+        // Call before calling setContentView();
+        if (activity != null) {
+            activity.getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+            if (activity.getActionBar() != null) {
+                activity.getActionBar().hide();
+            }
+        }
+    }
+
+    /**
+     * Sets the activity in Fullscreen mode
+     *
+     * @param activity the activity
+     */
+    public static void setFullScreen(Activity activity) {
+        // Call before calling setContentView();
+        activity.getWindow()
+                .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
 
 }

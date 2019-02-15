@@ -21,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
         Utils.showSnackBar(parentLayout,"Hello World");
         boolean isTablet = Utils.isTablet();
         Log.d(TAG, "onCreate: "+isTablet);
-        Utils.vibrate(500,this);
+        Utils.vibrate(1500,this);
     }
 }
