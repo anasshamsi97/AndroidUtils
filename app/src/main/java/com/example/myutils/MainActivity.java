@@ -22,5 +22,6 @@ public class MainActivity extends AppCompatActivity {
         boolean isTablet = Utils.isTablet();
         Log.d(TAG, "onCreate: "+isTablet);
         Utils.vibrate(1500,this);
+
     }
 }

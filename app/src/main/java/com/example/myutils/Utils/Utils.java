@@ -111,6 +111,14 @@ public class Utils {
         }
     }
 
+    public static String toJSON(List<Object> objectList) {
+        Gson gson = new Gson();
+        String element = gson.toJson(
+                objectList);
+        return element;
+    }
+
+
     public static void showIndefiniteSnackBarWithAction(View parentLayout, String s) {
         Snackbar.make(parentLayout, s, Snackbar.LENGTH_INDEFINITE)
                 .setAction("CLOSE", null)
