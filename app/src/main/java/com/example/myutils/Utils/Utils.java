@@ -31,6 +31,7 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -97,6 +98,8 @@ public class Utils {
         }, null);
     }
 
+
+
     public static void toJSONArray(List<Object> objectList) {
         Gson gson = new Gson();
         String element = gson.toJson(
@@ -113,9 +116,15 @@ public class Utils {
 
     public static String toJSON(List<Object> objectList) {
         Gson gson = new Gson();
-        String element = gson.toJson(
+        return gson.toJson(
                 objectList);
-        return element;
+    }
+
+    public static List<Object> parseJsonToList(String json){
+        Gson gson = new Gson();
+        Type listType = new TypeToken<List<Object>>() {
+        }.getType();
+        return gson.fromJson(json, listType);
     }
 
 
