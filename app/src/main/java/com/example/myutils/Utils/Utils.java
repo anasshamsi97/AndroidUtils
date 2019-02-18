@@ -100,7 +100,7 @@ public class Utils {
 
 
 
-    public static void toJSONArray(List<Object> objectList) {
+    public static JSONArray listToJSONArray(List<Object> objectList) {
         Gson gson = new Gson();
         String element = gson.toJson(
                 objectList,
@@ -108,9 +108,18 @@ public class Utils {
                 }.getType());
         try {
             JSONArray jsonArray = new JSONArray(element);
-            Log.d(TAG, "toJSONArray: " + jsonArray.toString());
+            Log.d(TAG, "listToJSONArray: " + jsonArray.toString());
+            return jsonArray;
         } catch (JSONException e) {
-            Log.d(TAG, "toJSONArray: " + e.getMessage());
+            Log.d(TAG, "listToJSONArray: " + e.getMessage());
+        }
+        return null;
+    }
+    public static JSONArray stringToJSONArray(String json){
+        try {
+            return new JSONArray(json);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
