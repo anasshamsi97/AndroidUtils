@@ -68,7 +68,13 @@ public class Utils {
 
     public static String getDateTime() {
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
+        return sdf.format(c.getTime());
+    }
+
+    public static String getDate() {
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         return sdf.format(c.getTime());
     }
 
@@ -98,8 +104,6 @@ public class Utils {
         }, null);
     }
 
-
-
     public static JSONArray listToJSONArray(List<Object> objectList) {
         Gson gson = new Gson();
         String element = gson.toJson(
@@ -115,12 +119,14 @@ public class Utils {
         }
         return null;
     }
+
     public static JSONArray stringToJSONArray(String json){
         try {
             return new JSONArray(json);
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     public static String toJSON(List<Object> objectList) {
