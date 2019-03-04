@@ -244,4 +244,13 @@ public class Utils {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getString(key, "");
     }
+
+    public void showErrorSnackBar(View view, String string) {
+        Snackbar snackbar = Snackbar.make(view, string, Snackbar.LENGTH_LONG);
+        View snackBarView =snackbar.getView();
+        snackBarView.findViewById(android.support.design.R.id.snackbar_text).setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        snackBarView.setBackgroundColor(view.getResources().getColor(android.R.color.holo_red_light));
+        snackbar.show();
+    }
+
 }
